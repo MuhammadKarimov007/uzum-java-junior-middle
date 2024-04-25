@@ -1,28 +1,11 @@
 package org.uzum.iggytoto.javacore_collections.homework3;
 
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 /**
  * Класс для реализации домашнего задания номер три, часть 1.
  */
 public class Homework3_1 {
-    public static String removePunctuation(String str) {
-        // Define a regex pattern to match punctuation marks except hyphen
-        String regex = "[\\p{Punct}&&[^-]]";
-
-        // Replace punctuation marks except hyphen with an empty string
-        str = str.replaceAll(regex, "");
-
-        // Handle the case of hyphens separating words
-        // Split the string at hyphens and rejoin with space
-        String[] words = str.split("-");
-        str = String.join(" ", words);
-
-        return str;
-    }
 
     /**
      * Реализовать метод который считает количество слов встречающихся в заданном тексте.
