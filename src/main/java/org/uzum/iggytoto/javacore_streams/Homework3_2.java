@@ -23,9 +23,25 @@ public class Homework3_2 {
      * @return словарь где ключ хобби а значение лист персон с этим хобби
      */
     public Map<Integer, List<Person>> groupByAge(List<Person> persons, int minimalAgeFilter,  boolean removeDupes) {
-        return persons.stream()
-                .filter(person -> person.getAge() >= minimalAgeFilter)
-                .distinct()
-                .collect(Collectors.groupingBy(Person::getAge));
+        if (persons == null) {
+            System.out.println("список людей null");
+            return null;
+        }
+        if (minimalAgeFilter < 0) {
+            System.out.println("возраст не может быть отрицательным числом");
+            return null;
+        }
+
+        if (removeDupes) {
+            return persons.stream()
+                    .filter(person -> person.getAge() >= minimalAgeFilter)
+                    .distinct()
+                    .collect(Collectors.groupingBy(Person::getAge));
+        } else {
+            return persons.stream()
+                    .filter(person -> person.getAge() >= minimalAgeFilter)
+                    .collect(Collectors.groupingBy(Person::getAge));
+        }
+
     }
 }
